@@ -2,6 +2,7 @@ import "../css/movie.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Footer } from "./Footer";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies";
 
@@ -26,16 +27,15 @@ function Day(props) {
 export function Movie() {
     const params = useParams();
     const movieURL = `${URL}/${params.idMovie}/showtimes`;
-    const [movie, SetMovie] = useState([])
+    const [movie, SetMovie] = useState()
 
-    useEffect(() => axios(movieURL).then((resp) => SetMovie(resp.data.days)), []);
-
-    console.log(movie)
-
+    useEffect(() => axios(movieURL).then((resp) => SetMovie(resp.data)), []);
+    
     return (
         <>
             <div className="top-bar">Selecione o horário</div>
-            {(movie.length > 0) ? movie.map((day) => <Day day={day} key={day.id}/>) : "carregando..."}
+            {movie ? movie.days.map((day) => <Day day={day} key={day.id} />) : "carregando..."}
+            {movie ? <Footer src={movie.posterURL} title={movie.title} /> : ""}
         </>
     );
 }
