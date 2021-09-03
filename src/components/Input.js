@@ -1,4 +1,4 @@
-import "../css/input.css"
+import "../css/input.css";
 
 export function Input(props) {
     const {

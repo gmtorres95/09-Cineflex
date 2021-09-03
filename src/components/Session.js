@@ -6,6 +6,7 @@ import { Footer } from "./Footer";
 import { Seat } from "./Seat";
 import { Legend } from "./Legend";
 import { Input } from "./Input";
+import { ConfirmButton } from "./ConfirmButton";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes";
 
@@ -20,8 +21,8 @@ function footerUpdate({movie, name, day}) {
 export function Session() {
     const [session, SetSession] = useState();
     const [selected, SetSelected] = useState([]);
-    const [clientName, SetClientName] = useState();
-    const [clientCPF, SetClientCPF] = useState();
+    const [clientName, SetClientName] = useState("");
+    const [clientCpf, SetClientCpf] = useState("");
     const params = useParams();
     const sessionURL = `${URL}/${params.idSession}/seats`;
     let footer;
@@ -34,7 +35,7 @@ export function Session() {
         {
             title: "CPF do comprador:",
             placeholder: "Digite seu CPF...",
-            SetInfo: SetClientCPF
+            SetInfo: SetClientCpf
         }
     ];
 
@@ -42,20 +43,17 @@ export function Session() {
 
     if(session) footer = footerUpdate(session);
 
-    console.log(clientName, clientCPF)
-
     return (
         <>
             <div className="top-bar">Selecione o(s) assento(s)</div>
             <ul className="seats">
                 {session ? session.seats.map((seat) => 
-                    <Seat seat={seat} key={seat.id}selected={selected}SetSelected={SetSelected}/>) : ""
+                    <Seat seat={seat} key={seat.id} selected={selected} SetSelected={SetSelected}/>) : ""
                 }
             </ul>
             <Legend />
             {imputs.map((imput, i) => <Input imput={imput} key={i} />)}
-
-
+            <ConfirmButton clientName={clientName} clientCpf={clientCpf} selected={selected}/>
             {session ? <Footer src={footer.src} title={footer.title} day={footer.day}/> : ""}
         </>
     );
