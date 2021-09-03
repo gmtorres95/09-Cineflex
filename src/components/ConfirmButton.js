@@ -1,6 +1,5 @@
-import "../css/confirm-button.css";
+import "../css/button.css";
 import axios from "axios";
-import { useEffect } from "react";
 
 function validateName(name) {
     name = name.replace(/[a-zãõáéíóúàèìòùç'-]/gi, "").replace(/ /g, "");
@@ -9,7 +8,7 @@ function validateName(name) {
 }
 
 function validateCpf(cpf) {
-    if(cpf[3] === "." && cpf[7] && cpf[11] == "-") {
+    if(cpf[3] === "." && cpf[7] && cpf[11] === "-") {
         cpf = cpf.replace(".", "").replace(".", "").replace("-","");
     }
     if(cpf % 1 !== 0 || cpf < 10000000000 || cpf > 99999999999) return false;
@@ -24,7 +23,7 @@ function validateOrder({name, cpf, ids}) {
         alert("Selecione o(s) assento(s)");
         return false;
     }
-    
+
     if(!isNameValid || !name) {
         alert("Insira um nome válido");
         return false;
@@ -43,6 +42,10 @@ function validateOrder({name, cpf, ids}) {
     return true;
 }
 
+function goToCheckout() {
+
+}
+
 function order({clientName, clientCpf, selected}) {
     const postURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many";
     const postOrder = {
@@ -55,7 +58,7 @@ function order({clientName, clientCpf, selected}) {
 
     if(isOrderValid) {
         const promise = axios.post(postURL, postOrder)
-        promise.then(() => console.log("Sucesso!"));
+        promise.then(() => window.open("/sucesso","_self"));
         promise.catch(() => alert(`Erro no servidor\nTente novamente`));
     }
 }

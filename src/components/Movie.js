@@ -1,7 +1,7 @@
 import "../css/movie.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Footer } from "./Footer";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies";

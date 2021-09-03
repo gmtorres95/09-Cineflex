@@ -42,7 +42,7 @@ export function Session() {
     useEffect(() => {axios(sessionURL).then((resp) => SetSession(resp.data));}, []);
 
     if(session) footer = footerUpdate(session);
-
+    
     return (
         <>
             <div className="top-bar">Selecione o(s) assento(s)</div>

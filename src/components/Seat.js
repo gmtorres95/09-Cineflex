@@ -8,10 +8,10 @@ function addSeat(selected, SetSelected, id) {
 }
 
 export function Seat({seat, selected, SetSelected}) {
-    let seatStyle = (seat.isAvailable) ? " available" : " unavailable";
+    let seatStyle = (seat.isAvailable) ? "available" : "unavailable";
     const text = "Esse assento não está disponível";
     
-    if(selected.includes(Number(seat.id))) seatStyle = " selected";
+    if(selected.includes(Number(seat.id))) seatStyle = "selected";
 
     if(Number(seat.name) % 10 === 0 && Number(seat.name) < 50) {
         return (
