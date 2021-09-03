@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../css/home.css";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies";
 
-function MovieButton({src, title}) {
+function MovieButton({src, title, id}) {
+    const path = `/movie/${id}`;
     return (
-        <div className="poster">
+        <Link className="poster" to={path}>
             <img src={src} alt={title} />
-        </div>
+        </Link>
     );
 }
 
@@ -19,7 +21,7 @@ export function Home() {
         <>
             <div className="top-bar" onClick={() => console.log(movies)} >Selecione o filme</div>
             <div className="posters">
-                {movies.length > 0 ? movies.map((movie) => <MovieButton src={movie.posterURL} title={movie.title} />) : "carregando..."}
+                {movies.length > 0 ? movies.map((movie) => <MovieButton src={movie.posterURL} title={movie.title} id={movie.id}/>) : "carregando..."}
             </div>
         </>
     );
