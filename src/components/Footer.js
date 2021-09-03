@@ -1,6 +1,6 @@
 import "../css/footer.css"
 
-export function Footer({src, title, showtime}) {
+export function Footer({src, title, day}) {
     return (
         <footer>
             <div className="thumb" >
@@ -8,7 +8,7 @@ export function Footer({src, title, showtime}) {
             </div>
             <div>
                 <p>{title}</p>
-                <p>{showtime}</p>
+                <p>{day}</p>
             </div>
         </footer>
     );

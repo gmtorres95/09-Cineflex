@@ -1,7 +1,7 @@
 import "../css/movie.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Footer } from "./Footer";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies";
@@ -17,7 +17,7 @@ function Day(props) {
         <div className="day">
             <span>{weekday} - {date}</span>
             <div className="showtimes">
-                {showtimes.map(showtime => <div className="showtime" key={showtime.id}>{showtime.name}</div>)}
+                {showtimes.map(showtime => <Link className="showtime" key={showtime.id} to={`/sessao/${showtime.id}`}>{showtime.name}</Link>)}
             </div>
         </div>
     );
