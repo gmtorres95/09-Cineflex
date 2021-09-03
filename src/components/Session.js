@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Footer } from "./Footer";
+import { Seat } from "./Seat";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes";
 
@@ -14,34 +15,22 @@ function footerUpdate({movie, name, day}) {
     };
 }
 
-function addSeat(selected, SetSelected, name) {
-    if(!selected.includes(name)) {
-        SetSelected([...selected, Number(name)]);
-    }
-    else {
-        SetSelected(selected.filter((seat) => seat !== name));
-    }
-}
-
-function Seat({seat, selected, SetSelected}) {
-    let seatStyle = (seat.isAvailable) ? "available" : "unavailable";
-    
-    if(selected.includes(Number(seat.name))) seatStyle = "selected";
-
-    if(Number(seat.name) % 10 === 0 && Number(seat.name) < 50) {
-        return (
-            <>
-                <li className={seatStyle} 
-                    onClick={() => seat.isAvailable ? addSeat(selected, SetSelected, Number(seat.name)) : ""}
-                >{seat.name}</li>
-                <li className="dummy" />
-            </>
-        );
-    }
+function Legend() {
     return (
-        <li className={seatStyle} 
-            onClick={() => seat.isAvailable ? addSeat(selected, SetSelected, Number(seat.name)) : ""}
-        >{seat.name}</li>
+        <div className="legend">
+            <div>
+                <li className="seat selected" />
+                <span>Selecionado</span>
+            </div>
+            <div>
+                <li className="seat available" />
+                <span>Disponível</span>
+            </div>
+            <div>
+                <li className="seat unavailable" />
+                <span>Indisponível</span>
+            </div>
+        </div>
     );
 }
 
@@ -56,21 +45,15 @@ export function Session() {
 
     if(session) footer = footerUpdate(session);
 
-    console.log(selected)
-
     return (
         <>
             <div className="top-bar">Selecione o(s) assento(s)</div>
             <ul className="seats">
                 {session ? session.seats.map((seat) => 
-                    <Seat 
-                        seat={seat} 
-                        key={seat.id}
-                        selected={selected}
-                        SetSelected={SetSelected}
-                    />) : ""}
+                    <Seat seat={seat} key={seat.id}selected={selected}SetSelected={SetSelected}/>) : ""
+                }
             </ul>
-
+            <Legend />
 
 
             {session ? <Footer src={footer.src} title={footer.title} day={footer.day}/> : ""}
