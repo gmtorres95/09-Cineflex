@@ -14,22 +14,34 @@ function footerUpdate({movie, name, day}) {
     };
 }
 
-function Seat({seat}) {
-    let seatStyle = (seat.isAvailable) ? "available" : "unavailable";
-    const [selected, SetSelected] = useState(false);
+function addSeat(selected, SetSelected, name) {
+    if(!selected.includes(name)) {
+        SetSelected([...selected, Number(name)]);
+    }
+    else {
+        SetSelected(selected.filter((seat) => seat !== name));
+    }
+}
 
-    if(selected) seatStyle = "selected";
+function Seat({seat, selected, SetSelected}) {
+    let seatStyle = (seat.isAvailable) ? "available" : "unavailable";
+    
+    if(selected.includes(Number(seat.name))) seatStyle = "selected";
 
     if(Number(seat.name) % 10 === 0 && Number(seat.name) < 50) {
         return (
             <>
-                <li className={seatStyle} onClick={() => seat.isAvailable ? SetSelected(!selected) : ""}>{seat.name}</li>
+                <li className={seatStyle} 
+                    onClick={() => seat.isAvailable ? addSeat(selected, SetSelected, Number(seat.name)) : ""}
+                >{seat.name}</li>
                 <li className="dummy" />
             </>
         );
     }
     return (
-        <li className={seatStyle} onClick={() => seat.isAvailable ? SetSelected(!selected) : ""}>{seat.name}</li>
+        <li className={seatStyle} 
+            onClick={() => seat.isAvailable ? addSeat(selected, SetSelected, Number(seat.name)) : ""}
+        >{seat.name}</li>
     );
 }
 
@@ -37,11 +49,14 @@ export function Session() {
     const params = useParams();
     const sessionURL = `${URL}/${params.idSession}/seats`;
     const [session, SetSession] = useState();
+    const [selected, SetSelected] = useState([]);
     let footer;
 
     useEffect(() => {axios(sessionURL).then((resp) => SetSession(resp.data));}, []);
 
     if(session) footer = footerUpdate(session);
+
+    console.log(selected)
 
     return (
         <>
@@ -51,6 +66,8 @@ export function Session() {
                     <Seat 
                         seat={seat} 
                         key={seat.id}
+                        selected={selected}
+                        SetSelected={SetSelected}
                     />) : ""}
             </ul>
 
