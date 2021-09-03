@@ -42,10 +42,6 @@ function validateOrder({name, cpf, ids}) {
     return true;
 }
 
-function goToCheckout() {
-
-}
-
 function order({clientName, clientCpf, selected}) {
     const postURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many";
     const postOrder = {
@@ -65,6 +61,6 @@ function order({clientName, clientCpf, selected}) {
 
 export function ConfirmButton(props) {
     return (
-        <div className="button" onClick={() => order(props)}>Reservar assento(s)</div>
+        <div className="button confirm" onClick={() => order(props)}>Reservar assento(s)</div>
     );
 }

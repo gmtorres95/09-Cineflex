@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+.movies {
+    padding-bottom: 114px;
+}
+
 .day {
     height: 85px;
     margin-bottom: 22px;

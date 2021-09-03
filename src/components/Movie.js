@@ -32,10 +32,10 @@ export function Movie() {
     useEffect(() => axios(movieURL).then((resp) => SetMovie(resp.data)), []);
     
     return (
-        <>
+        <div className="movies">
             <div className="top-bar">Selecione o horário</div>
             {movie ? movie.days.map((day) => <Day day={day} key={day.id} />) : "carregando..."}
             {movie ? <Footer src={movie.posterURL} title={movie.title} /> : ""}
-        </>
+        </div>
     );
 }

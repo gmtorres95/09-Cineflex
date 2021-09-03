@@ -44,7 +44,7 @@ export function Session() {
     if(session) footer = footerUpdate(session);
     
     return (
-        <>
+        <div className="session">
             <div className="top-bar">Selecione o(s) assento(s)</div>
             <ul className="seats">
                 {session ? session.seats.map((seat) => 
@@ -55,6 +55,6 @@ export function Session() {
             {imputs.map((imput, i) => <Input imput={imput} key={i} />)}
             <ConfirmButton clientName={clientName} clientCpf={clientCpf} selected={selected}/>
             {session ? <Footer src={footer.src} title={footer.title} day={footer.day}/> : ""}
-        </>
+        </div>
     );
 }
