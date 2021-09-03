@@ -3,7 +3,6 @@
 .day {
     height: 85px;
     margin-bottom: 22px;
-    font-family: roboto;
     font-size: 20px;
     color: #293845;
     display: flex;
@@ -12,7 +11,6 @@
 }
 
 .showtimes {
-    font-family: roboto;
     display: flex;
 }
 
@@ -23,7 +21,6 @@
     margin-right: 9px;
     background-color: #E8833A;
     color: #FFFFFF;
-    font-family: roboto;
     font-size: 18px;
     display: flex;
     justify-content: center;

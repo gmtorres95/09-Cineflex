@@ -4,11 +4,14 @@ a {
     text-decoration: none;
 }
 
+body * {
+    font-family: roboto;
+}
+
 header {
     height: 67px;
     width: 100%;
     background-color: #C3CFD9;
-    font-family: roboto;
     font-size: 34px;
     color: #E8833A;
     display: flex;
@@ -25,7 +28,6 @@ body {
 
 .top-bar {
     height: 110px;
-    font-family: roboto;
     font-size: 24px;
     color: #293845;
     display: flex;

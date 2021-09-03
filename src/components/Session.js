@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Footer } from "./Footer";
 import { Seat } from "./Seat";
+import { Legend } from "./Legend";
+import { Input } from "./Input";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes";
 
@@ -15,35 +17,32 @@ function footerUpdate({movie, name, day}) {
     };
 }
 
-function Legend() {
-    return (
-        <div className="legend">
-            <div>
-                <li className="seat selected" />
-                <span>Selecionado</span>
-            </div>
-            <div>
-                <li className="seat available" />
-                <span>Disponível</span>
-            </div>
-            <div>
-                <li className="seat unavailable" />
-                <span>Indisponível</span>
-            </div>
-        </div>
-    );
-}
-
 export function Session() {
-    const params = useParams();
-    const sessionURL = `${URL}/${params.idSession}/seats`;
     const [session, SetSession] = useState();
     const [selected, SetSelected] = useState([]);
+    const [clientName, SetClientName] = useState();
+    const [clientCPF, SetClientCPF] = useState();
+    const params = useParams();
+    const sessionURL = `${URL}/${params.idSession}/seats`;
     let footer;
+    const imputs = [
+        {
+            title: "Nome do comprador:",
+            placeholder: "Digite seu nome...",
+            SetInfo: SetClientName
+        },
+        {
+            title: "CPF do comprador:",
+            placeholder: "Digite seu CPF...",
+            SetInfo: SetClientCPF
+        }
+    ];
 
     useEffect(() => {axios(sessionURL).then((resp) => SetSession(resp.data));}, []);
 
     if(session) footer = footerUpdate(session);
+
+    console.log(clientName, clientCPF)
 
     return (
         <>
@@ -54,6 +53,7 @@ export function Session() {
                 }
             </ul>
             <Legend />
+            {imputs.map((imput, i) => <Input imput={imput} key={i} />)}
 
 
             {session ? <Footer src={footer.src} title={footer.title} day={footer.day}/> : ""}
