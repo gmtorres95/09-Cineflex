@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .day {
+    height: 85px;
+    margin-bottom: 22px;
     font-family: roboto;
     font-size: 20px;
     color: #293845;
-    margin: 0px 24px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .showtimes {
-    margin: 0px 24px 22px;
     font-family: roboto;
     display: flex;
 }

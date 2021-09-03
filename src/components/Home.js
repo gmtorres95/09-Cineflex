@@ -21,7 +21,7 @@ export function Home() {
         <>
             <div className="top-bar" onClick={() => console.log(movies)} >Selecione o filme</div>
             <div className="posters">
-                {movies.length > 0 ? movies.map((movie) => <MovieButton src={movie.posterURL} title={movie.title} id={movie.id}/>) : "carregando..."}
+                {movies.length > 0 ? movies.map((movie) => <MovieButton src={movie.posterURL} title={movie.title} id={movie.id} key={movie.id}/>) : "carregando..."}
             </div>
         </>
     );

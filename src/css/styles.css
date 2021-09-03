@@ -2,6 +2,7 @@
 
 header {
     height: 67px;
+    width: 100%;
     background-color: #C3CFD9;
     font-family: roboto;
     font-size: 34px;
@@ -9,6 +10,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+body {
+    margin: 67px 24px 117px;
 }
 
 .top-bar {

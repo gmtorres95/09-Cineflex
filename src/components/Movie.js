@@ -13,12 +13,12 @@ function Day(props) {
     } = props.day;
 
     return (
-        <>
-            <div className="day">{weekday} - {date}</div>
+        <div className="day">
+            <span>{weekday} - {date}</span>
             <div className="showtimes">
-                {showtimes.map(showtime => <div className="showtime">{showtime.name}</div>)}
+                {showtimes.map(showtime => <div className="showtime" key={showtime.id}>{showtime.name}</div>)}
             </div>
-        </>
+        </div>
     );
 
 }
@@ -35,7 +35,7 @@ export function Movie() {
     return (
         <>
             <div className="top-bar">Selecione o horário</div>
-            {(movie.length > 0) ? movie.map((day) => <Day day={day} />) : "carregando..."}
+            {(movie.length > 0) ? movie.map((day) => <Day day={day} key={day.id}/>) : "carregando..."}
         </>
     );
 }
