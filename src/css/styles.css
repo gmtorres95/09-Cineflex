@@ -10,3 +10,13 @@ header {
     align-items: center;
     justify-content: center;
 }
+
+.top-bar {
+    height: 110px;
+    font-family: roboto;
+    font-size: 24px;
+    color: #293845;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
