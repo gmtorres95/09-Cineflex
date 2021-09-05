@@ -18,11 +18,16 @@ function footerUpdate({movie, name, day}) {
     };
 }
 
-export function Session() {
+export function Session(props) {
+    const {
+        selected,
+        clientName,
+        clientCpf,
+        SetSelected,
+        SetClientName,
+        SetClientCpf
+    } = props;
     const [session, SetSession] = useState();
-    const [selected, SetSelected] = useState([]);
-    const [clientName, SetClientName] = useState("");
-    const [clientCpf, SetClientCpf] = useState("");
     const params = useParams();
     const sessionURL = `${URL}/${params.idSession}/seats`;
     let footer;
