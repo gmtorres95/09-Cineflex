@@ -2,13 +2,14 @@ import "../css/information.css";
 
 export function Information(props) {
     const {
-        title,
-        info
-    } = props.data;
+        head,
+        description
+    } = props.info;
+
     return (
         <div className="info">
-            <h1>{title}</h1>
-            {info.map((e, i) => <p key={i}>{e}</p>)}
+            <h1>{head}</h1>
+            {description.map((text, i) => <p key={i}>{text}</p>)}
         </div>
     );
 }

@@ -1,36 +1,58 @@
 import "../css/success.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Information } from "./Information";
 import { HomeButton } from "./HomeButton";
 
-export function Success() {
-    const data = [
+function order(name, cpf, seats, SetIsOrderDone) {
+    const postURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many";
+    const postOrder = {
+        ids: seats,
+        name,
+        cpf
+    };
+
+    const promise = axios.post(postURL, postOrder)
+    promise.then(() => SetIsOrderDone(true));
+    promise.catch(() => {alert(`Erro no servidor\nTente novamente`)});
+}
+
+export function Success(props) {
+    const {
+        title,
+        session,
+        seats,
+        name,
+        cpf
+    } = props.order;
+    const orderInfo = [
         {
-            title: "Filme e sessão",
-            info: [
-                "Enola Holmes",
-                "24/06/2021 15:00"
+            head: "Filme e sessão",
+            description: [
+                title,
+                session
         ]
         },
         {
-            title: "Ingressos",
-            info: [
-                "Assento 15",
-                "Assento 16"
-            ]
+            head: "Ingressos",
+            description: seats.map((seat) => `Assento ${seat % 50}`)
         },
         {
-            title: "Comprador",
-            info: [
-                "Nome: João da Silva Sauro",
-                "CPF: 123.456.789-10"
+            head: "Comprador",
+            description: [
+                `Nome: ${name}`,
+                `CPF: ${cpf}`
             ]
         }
     ];
-    
+    const [isOrderDone, SetIsOrderDone] = useState(false);
+
+    useEffect(() => order(name, cpf, seats, SetIsOrderDone), []);
+
     return (
         <>
             <div className="top-bar success">Pedido feito com sucesso!</div>
-            {data.map((e, i) => <Information data={e} key={i}/>)}
+            {isOrderDone ? orderInfo.map((info, i) => <Information key={i} info={info} />) : "carregando..."}
             <HomeButton />
         </>
     );

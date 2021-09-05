@@ -14,14 +14,12 @@ export default function App() {
     const updateOrder = (title, day, time, seats, name, cpf) => {
         SetOrder({
           title,
-          day: `${day} ${time}`,
+          session: `${day} ${time}`,
           seats,
           name,
           cpf
         });
     }
-
-    console.log(order)
 
     return (
         <BrowserRouter>
@@ -32,7 +30,9 @@ export default function App() {
                 <Route exact path="/sessao/:idSession">
                     <Session updateOrder={updateOrder} />
                 </Route>
-                <Route exact path="/sucesso" component={Success} />
+                <Route exact path="/sucesso">
+                    <Success order={order} />
+                </Route>
 			</Switch>
 		</BrowserRouter>
     );
