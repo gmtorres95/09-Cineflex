@@ -18,16 +18,11 @@ function footerUpdate({movie, name, day}) {
     };
 }
 
-export function Session(props) {
-    const {
-        selected,
-        clientName,
-        clientCpf,
-        SetSelected,
-        SetClientName,
-        SetClientCpf
-    } = props;
+export function Session({updateOrder}) {
     const [session, SetSession] = useState();
+    const [selected, SetSelected] = useState([]);
+    const [clientName, SetClientName] = useState("");
+    const [clientCpf, SetClientCpf] = useState("");
     const params = useParams();
     const sessionURL = `${URL}/${params.idSession}/seats`;
     let footer;
@@ -58,7 +53,16 @@ export function Session(props) {
             </ul>
             <Legend />
             {imputs.map((imput, i) => <Input imput={imput} key={i} />)}
-            <ConfirmButton clientName={clientName} clientCpf={clientCpf} selected={selected}/>
+            {session ? 
+            <ConfirmButton 
+                title={session.movie.title}
+                day={session.day.date}
+                time={session.name}
+                seats={selected}
+                name={clientName}
+                cpf={clientCpf}
+                updateOrder={updateOrder}
+            /> : "carregando..."}
             {session ? <Footer src={footer.src} title={footer.title} day={footer.day}/> : ""}
         </div>
     );

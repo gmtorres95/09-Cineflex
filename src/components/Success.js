@@ -26,7 +26,7 @@ export function Success() {
             ]
         }
     ];
-
+    
     return (
         <>
             <div className="top-bar success">Pedido feito com sucesso!</div>

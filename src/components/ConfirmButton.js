@@ -1,5 +1,6 @@
 import "../css/button.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function validateName(name) {
     name = name.replace(/[a-zãõáéíóúàèìòùç'-]/gi, "").replace(/ /g, "");
@@ -42,12 +43,12 @@ function validateOrder({name, cpf, ids}) {
     return true;
 }
 
-function order({clientName, clientCpf, selected}) {
+function order(name, cpf, seats) {
     const postURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many";
     const postOrder = {
-        ids: selected,
-        name: clientName,
-        cpf: clientCpf
+        ids: seats,
+        name,
+        cpf
     };
 
     const isOrderValid = validateOrder(postOrder);
@@ -59,8 +60,15 @@ function order({clientName, clientCpf, selected}) {
     }
 }
 
-export function ConfirmButton(props) {
+export function ConfirmButton({title, day, time, seats, name, cpf, updateOrder}) {
     return (
-        <div className="button confirm" onClick={() => order(props)}>Reservar assento(s)</div>
+        <div 
+            to="/sessao"
+            className="button confirm"
+            onClick={() => {
+                updateOrder(title, day, time, seats, name, cpf);
+                order(name, cpf, seats)
+            }}
+        >Reservar assento(s)</div>
     );
 }
