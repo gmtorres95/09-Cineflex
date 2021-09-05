@@ -3,6 +3,6 @@ import { Link } from "react-router-dom";
 
 export function HomeButton() {
     return (
-        <Link className="button" to="/">Voltar pra Home</Link>
+        <Link to="/" className="button">Voltar pra Home</Link>
     );
 }

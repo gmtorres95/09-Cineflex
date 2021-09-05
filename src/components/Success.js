@@ -53,7 +53,7 @@ export function Success(props) {
         <>
             <div className="top-bar success">Pedido feito com sucesso!</div>
             {isOrderDone ? orderInfo.map((info, i) => <Information key={i} info={info} />) : "carregando..."}
-            <HomeButton />
+            <HomeButton path="/" text="Voltar pra Home" />
         </>
     );
 }
