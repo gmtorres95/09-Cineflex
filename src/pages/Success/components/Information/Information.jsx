@@ -1,3 +1,5 @@
+import React from "react";
+
 import Wrapper from "./styles/Wrapper";
 
 export function Information(props) {

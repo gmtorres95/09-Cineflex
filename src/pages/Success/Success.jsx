@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Information } from "./components/Information/Information";
 import postOrder from "../../services/postOrder";

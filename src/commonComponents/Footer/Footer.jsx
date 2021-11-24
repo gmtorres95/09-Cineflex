@@ -1,3 +1,5 @@
+import React from "react";
+
 import Cover from "./styles/Cover";
 import Wrapper from "./styles/Wrapper";
 
