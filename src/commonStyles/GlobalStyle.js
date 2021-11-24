@@ -9,10 +9,10 @@ export default createGlobalStyle`
   }
 
   body {
+    padding: 68px 0px;
     background: #FFF;
     color: #293845;
     -webkit-font-smoothing: antialiased;
-    padding: 68px 0px;
   }
 
   body, input, button, table {

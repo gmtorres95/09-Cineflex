@@ -6,12 +6,12 @@ export default styled.input`
   margin-bottom: 8px;
   padding: 0px 18px;
   border-radius: 4px;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #D4D4D4;
   box-sizing: border-box;
   font-size: 18px;
 
   &::placeholder {
-    color: #afafaf;
+    color: #AFAFAF;
     font-style: italic;
   }
 `;

@@ -3,9 +3,9 @@ import styled from "styled-components";
 export default styled.header`
   height: 67px;
   width: 100%;
-  background-color: #c3cfd9;
+  background-color: #C3CFD9;
   font-size: 34px;
-  color: #e8833a;
+  color: #E8833A;
   display: flex;
   align-items: center;
   justify-content: center;

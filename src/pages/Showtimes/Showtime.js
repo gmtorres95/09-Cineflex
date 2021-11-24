@@ -8,8 +8,8 @@ export default styled.div`
     height: 44px;
     border-radius: 4px;
     margin-right: 12px;
-    background-color: #e8833a;
-    color: #ffffff;
+    background-color: #E8833A;
+    color: #FFF;
     font-size: 18px;
     display: flex;
     justify-content: center;

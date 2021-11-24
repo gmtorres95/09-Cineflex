@@ -3,8 +3,8 @@ import styled from "styled-components";
 export default styled.footer`
   width: 100%;
   height: 117px;
-  background-color: #dfe6ed;
-  border: 1px solid #9eadba;
+  background-color: #DFE6ED;
+  border: 1px solid #9EADBA;
   font-size: 26px;
   color: #293845;
   display: flex;
