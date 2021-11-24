@@ -1,40 +1,25 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import "../../css/movie.css";
-
-import { Footer } from "../../commonComponents/Footer";
+import { Footer } from "../../commonComponents/Footer/Footer";
 import getShowtimes from "../../services/getShowtimes";
-
-function Day(props) {
-    const {
-        weekday,
-        date,
-        showtimes
-    } = props.day;
-
-    return (
-        <div className="day">
-            <span>{weekday} - {date}</span>
-            <div className="showtimes">
-                {showtimes.map(showtime => <Link className="showtime" key={showtime.id} to={`/sessao/${showtime.id}`}>{showtime.name}</Link>)}
-            </div>
-        </div>
-    );
-
-}
+import TopBar from "../../commonStyles/TopBar";
+import Wrapper from "./styles/Wrapper";
+import Day from "./components/Day/Day";
 
 export function Movie() {
-    const [movie, setMovie] = useState();
-    const movieId = useParams().movieId;
+  const [movie, setMovie] = useState();
+  const { movieId } = useParams();
 
-    useEffect(() => getShowtimes(movieId, setMovie), [movieId]);
-    
-    return (
-        <div className="movies">
-            <div className="top-bar">Selecione o horário</div>
-            {movie ? movie.days.map((day) => <Day day={day} key={day.id} />) : "carregando..."}
-            {movie ? <Footer src={movie.posterURL} title={movie.title} /> : ""}
-        </div>
-    );
+  useEffect(() => getShowtimes(movieId, setMovie), [movieId]);
+
+  return (
+    <Wrapper>
+      <TopBar>Selecione o horário</TopBar>
+      { movie
+        ? movie.days.map((day) => <Day day={ day } key={ day.id } />)
+        : "carregando..." }
+      { movie ? <Footer src={ movie.posterURL } title={ movie.title } /> : "" }
+    </Wrapper>
+  );
 }

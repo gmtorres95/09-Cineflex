@@ -1,29 +1,28 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-import "../../css/home.css";
+import TopBar from "../../commonStyles/TopBar";
 
 import getMovies from "../../services/getMovies";
-
-function MovieButton({src, title, id}) {
-    return (
-        <Link className="poster" to={`/movie/${id}`}>
-            <img src={src} alt={title} />
-        </Link>
-    );
-}
+import MoviesGrid from "./styles/MoviesGrid";
+import Wrapper from "./styles/Wrapper";
 
 export function Home() {
-    const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
-    useEffect(() => getMovies(setMovies), []);
+  useEffect(() => getMovies(setMovies), []);
 
-    return (
-        <>
-            <div className="top-bar">Selecione o filme</div>
-            <div className="posters">
-                {movies.length > 0 ? movies.map((movie) => <MovieButton src={movie.posterURL} title={movie.title} id={movie.id} key={movie.id}/>) : "carregando..."}
-            </div>
-        </>
-    );
+  return (
+    <Wrapper>
+      <TopBar>Selecione o filme</TopBar>
+      <MoviesGrid>
+        { movies.length > 0
+          ? movies.map((movie) => (
+              <Link to={ `/movie/${ movie.id }` } key={ movie.id }>
+                <img src={ movie.posterURL } alt={ movie.title } />
+              </Link>
+            ))
+          : "carregando..." }
+      </MoviesGrid>
+    </Wrapper>
+  );
 }

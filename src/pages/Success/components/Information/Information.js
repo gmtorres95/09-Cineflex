@@ -1,15 +1,15 @@
-import "../../../css/information.css";
+import Wrapper from "./styles/Wrapper";
 
 export function Information(props) {
     const {
         head,
         description
-    } = props.info;
+    } = props;
 
     return (
-        <div className="info">
+        <Wrapper>
             <h1>{head}</h1>
             {description.map((text, i) => <p key={i}>{text}</p>)}
-        </div>
+        </Wrapper>
     );
 }

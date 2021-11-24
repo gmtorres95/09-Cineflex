@@ -1,48 +1,35 @@
 import { useEffect, useState } from "react";
 
-import "../../css/success.css";
-
-import { Information } from "./components/Information";
-import { HomeButton } from "./components/HomeButton";
+import { Information } from "./components/Information/Information";
 import postOrder from "../../services/postOrder";
+import TopBar from "../../commonStyles/TopBar";
+import Wrapper from "./styles/Wrapper";
+import { Link } from "react-router-dom";
+import StyledButton from "../../commonStyles/StyledButton";
 
 export function Success(props) {
-    const {
-        title,
-        session,
-        seats,
-        name,
-        cpf
-    } = props.order;
-    const orderInfo = [
-        {
-            head: "Filme e sessão",
-            description: [
-                title,
-                session
-        ]
-        },
-        {
-            head: "Ingressos",
-            description: seats.map((seat) => `Assento ${seat % 50}`)
-        },
-        {
-            head: "Comprador",
-            description: [
-                `Nome: ${name}`,
-                `CPF: ${cpf}`
-            ]
-        }
-    ];
-    const [isOrderDone, SetIsOrderDone] = useState(false);
+  const { title, session, seats, name, cpf } = props.order;
+  const [isOrderDone, SetIsOrderDone] = useState(false);
 
-    useEffect(() => postOrder({ ids: seats, name, cpf}, SetIsOrderDone), [seats, name, cpf]);
+  useEffect(
+    () => postOrder({ ids: seats, name, cpf }, SetIsOrderDone),
+    [seats, name, cpf]
+  );
 
+  if (isOrderDone)
     return (
-        <>
-            <div className="top-bar success">Pedido feito com sucesso!</div>
-            {isOrderDone ? orderInfo.map((info, i) => <Information key={i} info={info} />) : "carregando..."}
-            <HomeButton path="/" text="Voltar pra Home" />
-        </>
+      <Wrapper>
+        <TopBar success>Pedido feito com sucesso!</TopBar>
+
+        <Information head={"Filme e sessão"} description={[title, session]} />
+        <Information head={"Ingressos"} description={seats.map((seat) => `Assento ${seat % 50}`)} />
+        <Information head={"Comprador"} description={[`Nome: ${name}`, `CPF: ${cpf}`]} />
+
+        <Link to="/">
+          <StyledButton>Voltar para tela incial</StyledButton>
+        </Link>
+      </Wrapper>
     );
+
+  return "carregando...";
 }
