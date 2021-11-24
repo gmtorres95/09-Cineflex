@@ -1,8 +1,8 @@
 import React from "react";
 
-import Wrapper from "./styles/Wrapper";
+import Wrapper from "./InformationWrapper";
 
-export function Information(props) {
+export default function Information(props) {
     const {
         head,
         description

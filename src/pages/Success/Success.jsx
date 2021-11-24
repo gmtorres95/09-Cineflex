@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Information } from "./components/Information/Information";
 import postOrder from "../../services/postOrder";
 import TopBar from "../../commonStyles/TopBar";
-import Wrapper from "./styles/Wrapper";
-import { Link } from "react-router-dom";
 import StyledButton from "../../commonStyles/StyledButton";
+import Wrapper from "./SuccessWrapper";
+import Information from "./Information";
 
-export function Success(props) {
+export default function Success(props) {
   const { title, session, seats, name, cpf } = props.order;
   const [isOrderDone, SetIsOrderDone] = useState(false);
 

@@ -1,17 +1,17 @@
 import React from "react";
 
-import Wrapper from "./styles/Wrapper";
+import Wrapper from "./SeatWrapper";
 
-function addSeat(selected, SetSelected, id) {
-  if (!selected.includes(id)) {
-    SetSelected([...selected, Number(id)]);
-  } else {
-    SetSelected(selected.filter((seat) => seat !== id));
-  }
-}
-
-export function Seat({ seat, selected, SetSelected }) {
+export default function Seat({ seat, selected, SetSelected }) {
   const isSelected = !!selected.includes(Number(seat.id));
+
+  function addSeat() {
+    if (!selected.includes(seat.id)) {
+      SetSelected([...selected, Number(seat.id)]);
+    } else {
+      SetSelected(selected.filter((seat) => seat !== Number(seat.id)));
+    }
+  }
 
   return (
     <Wrapper

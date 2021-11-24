@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 import Wrapper from "./styles/Wrapper";
 
-export function Header() {
+export default function Header() {
   const history = useHistory();
   const location = useLocation();
 

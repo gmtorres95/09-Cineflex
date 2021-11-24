@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
 export default styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
+  h1 {
+    margin: 6px 0px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #293845;
+  }
+
   p {
-    margin-bottom: 4px;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 22px;
     color: #293845;
   }
 `;

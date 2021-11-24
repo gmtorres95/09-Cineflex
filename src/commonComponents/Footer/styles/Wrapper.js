@@ -12,8 +12,4 @@ export default styled.footer`
   position: fixed;
   bottom: 0;
   left: 0;
-
-  img {
-    padding: 8px;
-  }
 `;

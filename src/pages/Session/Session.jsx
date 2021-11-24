@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { useHistory } from "react-router";
+import { useParams } from "react-router-dom";
 
-import { Footer } from "../../commonComponents/Footer/Footer";
-import { Seat } from "./components/Seat/Seat";
-import { Legend } from "./components/Legend/Legend";
 import getSeats from "../../services/getSeats";
-
 import TopBar from "../../commonStyles/TopBar";
-import Wrapper from "./styles/Wrapper";
-import BookForm from "./components/BookForm/BookForm";
+import Footer from "../../commonComponents/Footer/Footer";
 import StyledButton from "../../commonStyles/StyledButton";
+import Wrapper from "./SessionWrapper";
+import Seat from "./Seat";
+import Legend from "./Legend";
+import BookForm from "./BookForm";
 
 function footerUpdate({ movie, name, day }) {
   return {
@@ -20,7 +19,7 @@ function footerUpdate({ movie, name, day }) {
   };
 }
 
-export function Session({ updateOrder }) {
+export default function Session({ updateOrder }) {
   const [session, setSession] = useState();
   const [selected, SetSelected] = useState([]);
   const [clientName, setClientName] = useState("");
@@ -46,45 +45,39 @@ export function Session({ updateOrder }) {
     history.push("/success");
   }
 
-  return (
-    <Wrapper>
-      <TopBar>Selecione o(s) assento(s)</TopBar>
+  if (session) {
+    return (
+      <Wrapper>
+        <TopBar>Selecione o(s) assento(s)</TopBar>
 
-      <ul>
-        {session
-          ? session.seats.map((seat) => (
-              <Seat
-                seat={seat}
-                key={seat.id}
-                selected={selected}
-                SetSelected={SetSelected}
-              />
-            ))
-          : ""}
-      </ul>
+        <ul>
+          {session.seats.map((seat) => (
+            <Seat
+              seat={seat}
+              key={seat.id}
+              selected={selected}
+              SetSelected={SetSelected}
+            />
+          ))}
+        </ul>
 
-      <Legend />
+        <Legend />
 
-      <form onSubmit={submitHelper}>
-        <BookForm
-          name={clientName}
-          setName={setClientName}
-          cpf={clientCpf}
-          setCpf={setClientCpf}
-        />
+        <form onSubmit={submitHelper}>
+          <BookForm
+            name={clientName}
+            setName={setClientName}
+            cpf={clientCpf}
+            setCpf={setClientCpf}
+          />
 
-        {session ? (
-          <StyledButton>Reservar assento(s)</StyledButton>
-        ) : (
-          "carregando..."
-        )}
-      </form>
+          {<StyledButton>Reservar assento(s)</StyledButton>}
+        </form>
 
-      {session ? (
         <Footer src={footer.src} title={footer.title} day={footer.day} />
-      ) : (
-        ""
-      )}
-    </Wrapper>
-  );
+      </Wrapper>
+    );
+  }
+
+  return "carregando...";
 }

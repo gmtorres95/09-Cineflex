@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export default styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
   a {
     width: 145px;
     height: 209px;
@@ -11,11 +15,5 @@ export default styled.div`
     justify-content: center;
     align-items: center;
     overflow: hidden;
-  }
-
-  img {
-    width: 128px;
-    height: 192px;
-    object-fit: cover;
   }
 `;

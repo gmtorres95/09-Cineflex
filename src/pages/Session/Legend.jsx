@@ -1,18 +1,20 @@
 import React from "react";
 
-import Wrapper from "./styles/Wrapper";
+import Wrapper from "./LegendWrapper";
 
-export function Legend() {
+export default function Legend() {
   return (
     <Wrapper>
       <div>
         <li />
         <span>Selecionado</span>
       </div>
+
       <div>
         <li />
         <span>Disponível</span>
       </div>
+      
       <div>
         <li />
         <span>Indisponível</span>

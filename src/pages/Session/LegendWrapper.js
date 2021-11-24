@@ -5,10 +5,8 @@ export default styled.div`
   max-width: 372px;
   margin: 16px auto 32px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   font-size: 13px;
-  color: #4E5A65;
 
   div {
     display: flex;

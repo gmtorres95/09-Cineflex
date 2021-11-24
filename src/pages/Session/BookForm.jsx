@@ -1,7 +1,7 @@
 import React from "react";
 
-import Wrapper from "./styles/Wrapper";
-import StyledInput from "./styles/StyledInput";
+import Wrapper from "./BookFormWrapper";
+import StyledInput from "./StyledInput";
 
 export default function BookForm({ name, setName, cpf, setCpf }) {
   return (

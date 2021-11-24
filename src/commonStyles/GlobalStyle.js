@@ -12,7 +12,7 @@ export default createGlobalStyle`
     background: #FFF;
     color: #293845;
     -webkit-font-smoothing: antialiased;
-    padding: 67px 0px;
+    padding: 68px 0px;
   }
 
   body, input, button, table {

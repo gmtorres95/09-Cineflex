@@ -2,12 +2,13 @@ import React from "react";
 
 import Cover from "./styles/Cover";
 import Wrapper from "./styles/Wrapper";
+import MovieCover from "../../commonStyles/MovieCover";
 
-export function Footer({ src, title, day }) {
+export default function Footer({ src, title, day }) {
   return (
     <Wrapper>
       <Cover>
-        <img src={src} alt={title} />
+        <MovieCover footer src={src} alt={title} />
       </Cover>
       <div>
         <p>{title}</p>
