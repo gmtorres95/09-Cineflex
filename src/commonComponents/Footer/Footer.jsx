@@ -1,8 +1,8 @@
 import React from "react";
 
-import Cover from "./styles/Cover";
-import Wrapper from "./styles/Wrapper";
 import MovieCover from "../../commonStyles/MovieCover";
+import Wrapper from "./FooterWrapper";
+import Cover from "./Cover";
 
 export default function Footer({ src, title, day }) {
   return (

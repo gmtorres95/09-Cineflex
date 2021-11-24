@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export default styled.footer`
   width: 100%;
-  height: 117px;
-  background-color: #DFE6ED;
+  height: 116px;
   border: 1px solid #9EADBA;
+  background-color: #DFE6ED;
   font-size: 26px;
   color: #293845;
   display: flex;

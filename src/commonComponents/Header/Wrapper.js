@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.header`
-  height: 67px;
+  height: 68px;
   width: 100%;
   background-color: #C3CFD9;
   font-size: 34px;
