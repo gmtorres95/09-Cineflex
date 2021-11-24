@@ -1,8 +1,10 @@
-import "../css/movie.css";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Footer } from "./Footer";
+import axios from "axios";
+
+import "../../css/movie.css";
+
+import { Footer } from "../../commonComponents/Footer";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies";
 

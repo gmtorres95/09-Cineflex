@@ -1,12 +1,15 @@
-import "../css/reset.css";
-import "../css/styles.css";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Header } from "./Header";
-import { Home } from "./Home";
-import { Movie } from "./Movie";
-import { Session } from "./Session";
-import { Success } from "./Success";
 import { useState } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import "./css/reset.css";
+import "./css/styles.css";
+
+import { Header } from "./commonComponents/Header";
+import { Home } from './pages/Home/Home';
+import { Movie } from "./pages/Movie/Movie";
+import { Session } from "./pages/Session/Session";
+import { Success } from "./pages/Success/Success";
+
 
 export default function App() {
     const [order, SetOrder] = useState({});

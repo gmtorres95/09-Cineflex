@@ -1,8 +1,10 @@
-import "../css/success.css";
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Information } from "./Information";
-import { HomeButton } from "./HomeButton";
+import axios from "axios";
+
+import "../../css/success.css";
+
+import { Information } from "./components/Information";
+import { HomeButton } from "./components/HomeButton";
 
 function order(name, cpf, seats, SetIsOrderDone) {
     const postURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many";

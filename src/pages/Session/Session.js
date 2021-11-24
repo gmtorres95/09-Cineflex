@@ -1,12 +1,15 @@
-import "../css/session.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Footer } from "./Footer";
-import { Seat } from "./Seat";
-import { Legend } from "./Legend";
-import { Input } from "./Input";
-import { ConfirmButton } from "./ConfirmButton";
+
+import "../../css/session.css";
+
+import { ConfirmButton } from "./components/ConfirmButton";
+
+import { Footer } from "../../commonComponents/Footer";
+import { Seat } from "./components/Seat";
+import { Legend } from "./components/Legend";
+import { Input } from "./components/Input";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes";
 

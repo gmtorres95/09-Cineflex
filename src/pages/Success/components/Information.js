@@ -1,4 +1,4 @@
-import "../css/information.css";
+import "../../../css/information.css";
 
 export function Information(props) {
     const {

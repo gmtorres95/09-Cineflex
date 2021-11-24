@@ -1,4 +1,4 @@
-import "../css/button.css";
+import "../../../css/button.css";
 import { Link } from "react-router-dom";
 
 export function ConfirmButton({title, day, time, seats, name, cpf, updateOrder}) {

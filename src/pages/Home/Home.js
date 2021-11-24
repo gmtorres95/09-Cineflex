@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../css/home.css";
+
+import "../../css/home.css";
 
 const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies";
 
