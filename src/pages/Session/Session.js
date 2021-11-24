@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -10,8 +9,7 @@ import { Footer } from "../../commonComponents/Footer";
 import { Seat } from "./components/Seat";
 import { Legend } from "./components/Legend";
 import { Input } from "./components/Input";
-
-const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes";
+import getSeats from "../../services/getSeats";
 
 function footerUpdate({movie, name, day}) {
     return {
@@ -22,12 +20,11 @@ function footerUpdate({movie, name, day}) {
 }
 
 export function Session({updateOrder}) {
-    const [session, SetSession] = useState();
+    const [session, setSession] = useState();
     const [selected, SetSelected] = useState([]);
     const [clientName, SetClientName] = useState("");
     const [clientCpf, SetClientCpf] = useState("");
-    const params = useParams();
-    const sessionURL = `${URL}/${params.idSession}/seats`;
+    const sessionId = useParams().sessionId;
     let footer;
     const imputs = [
         {
@@ -42,7 +39,7 @@ export function Session({updateOrder}) {
         }
     ];
 
-    useEffect(() => {axios(sessionURL).then((resp) => SetSession(resp.data));}, []);
+    useEffect(() => getSeats(sessionId, setSession), [sessionId]);
 
     if(session) footer = footerUpdate(session);
     

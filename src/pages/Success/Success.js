@@ -1,23 +1,10 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 import "../../css/success.css";
 
 import { Information } from "./components/Information";
 import { HomeButton } from "./components/HomeButton";
-
-function order(name, cpf, seats, SetIsOrderDone) {
-    const postURL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many";
-    const postOrder = {
-        ids: seats,
-        name,
-        cpf
-    };
-
-    const promise = axios.post(postURL, postOrder)
-    promise.then(() => SetIsOrderDone(true));
-    promise.catch(() => {alert(`Erro no servidor\nTente novamente`)});
-}
+import postOrder from "../../services/postOrder";
 
 export function Success(props) {
     const {
@@ -49,7 +36,7 @@ export function Success(props) {
     ];
     const [isOrderDone, SetIsOrderDone] = useState(false);
 
-    useEffect(() => order(name, cpf, seats, SetIsOrderDone), []);
+    useEffect(() => postOrder({ ids: seats, name, cpf}, SetIsOrderDone), [seats, name, cpf]);
 
     return (
         <>

@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
 
 import "../../css/movie.css";
 
 import { Footer } from "../../commonComponents/Footer";
-
-const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies";
+import getShowtimes from "../../services/getShowtimes";
 
 function Day(props) {
     const {
@@ -27,11 +25,10 @@ function Day(props) {
 }
 
 export function Movie() {
-    const params = useParams();
-    const movieURL = `${URL}/${params.idMovie}/showtimes`;
-    const [movie, SetMovie] = useState()
+    const [movie, setMovie] = useState();
+    const movieId = useParams().movieId;
 
-    useEffect(() => axios(movieURL).then((resp) => SetMovie(resp.data)), []);
+    useEffect(() => getShowtimes(movieId, setMovie), [movieId]);
     
     return (
         <div className="movies">

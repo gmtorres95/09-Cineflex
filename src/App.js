@@ -29,8 +29,8 @@ export default function App() {
             <Header />
 			<Switch>
                 <Route exact path="/" component={Home} />
-				<Route exact path="/movie/:idMovie" component={Movie} />
-                <Route exact path="/sessao/:idSession">
+				<Route exact path="/movie/:movieId" component={Movie} />
+                <Route exact path="/sessao/:sessionId">
                     <Session updateOrder={updateOrder} />
                 </Route>
                 <Route exact path="/sucesso">

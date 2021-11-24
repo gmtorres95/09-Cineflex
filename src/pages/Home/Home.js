@@ -1,10 +1,9 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "../../css/home.css";
 
-const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies";
+import getMovies from "../../services/getMovies";
 
 function MovieButton({src, title, id}) {
     return (
@@ -15,8 +14,10 @@ function MovieButton({src, title, id}) {
 }
 
 export function Home() {
-    const [movies, SetMovies] = useState([]);
-    useEffect(() => {axios(URL).then((resp) => SetMovies(resp.data))}, []);
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => getMovies(setMovies), []);
+
     return (
         <>
             <div className="top-bar">Selecione o filme</div>
