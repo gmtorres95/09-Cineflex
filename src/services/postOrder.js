@@ -1,10 +1,10 @@
 import axios from "axios";
 
-import * as URL from "./apiURL";
+import apiURL from "./apiURL";
 import showAlert from "../helper/showAlert";
 
 export default function postOrder(body, setIsOrderDone) {
-  axios.post(`${URL}/seats/book-many`, body)
+  axios.post(`${apiURL}/seats/book-many`, body)
     .then(() => {
       setIsOrderDone(true);
       showAlert({
