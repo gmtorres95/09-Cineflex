@@ -12,6 +12,7 @@ export default function DetailsFields({ name, setName, cpf, setCpf }) {
         placeholder="Digite seu nome..."
         value={name}
         onChange={(e) => setName(e.target.value)}
+        minLength="3"
         required
       />
       
@@ -22,6 +23,7 @@ export default function DetailsFields({ name, setName, cpf, setCpf }) {
         value={cpf}
         onChange={(e) => setCpf(e.target.value)}
         maxLength="14"
+        pattern="^((\d{3}\.){2}\d{3}-\d{2}|(\d{11}))$"
         required
       />
     </Wrapper>

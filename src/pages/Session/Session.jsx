@@ -11,8 +11,8 @@ import Legend from "./Legend";
 import DetailsFields from "./DetailsFields";
 import StyledButton from "../../commonStyles/StyledButton";
 
-export default function Session({ updateOrder }) {
-  const [selected, SetSelected] = useState([]);
+export default function Session() {
+  const [selected, setSelected] = useState([]);
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
   const { session, setSession, setOrder } = useContext(OrderContext);
@@ -23,8 +23,12 @@ export default function Session({ updateOrder }) {
 
   function submitHelper(e) {
     e.preventDefault();
+    if (!selected.length) {
+      alert("Selecione ao menos um assento");
+      return;
+    }
     setOrder({ ids: selected, name, cpf });
-    history.push("/success");
+    history.push('/success');
   }
 
   if (session) {
@@ -38,7 +42,7 @@ export default function Session({ updateOrder }) {
               seat={seat}
               key={seat.id}
               selected={selected}
-              SetSelected={SetSelected}
+              setSelected={setSelected}
             />
           ))}
         </ul>

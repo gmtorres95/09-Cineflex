@@ -2,14 +2,15 @@ import React from "react";
 
 import Wrapper from "./SeatWrapper";
 
-export default function Seat({ seat, selected, SetSelected }) {
+export default function Seat({ seat, selected, setSelected }) {
   const isSelected = !!selected.includes(Number(seat.id));
+  const id = Number(seat.id)
 
   function addSeat() {
     if (!selected.includes(seat.id)) {
-      SetSelected([...selected, Number(seat.id)]);
+      setSelected([...selected, id]);
     } else {
-      SetSelected(selected.filter((seat) => seat !== Number(seat.id)));
+      setSelected(selected.filter((seat) => seat !== id));
     }
   }
 
@@ -19,7 +20,7 @@ export default function Seat({ seat, selected, SetSelected }) {
       isSelected={isSelected}
       onClick={() =>
         seat.isAvailable
-          ? addSeat(selected, SetSelected, Number(seat.id))
+          ? addSeat()
           : alert("Esse assento não está disponível")
       }
     >
