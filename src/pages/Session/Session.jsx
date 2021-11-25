@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import OrderContext from "../../contexts/OrderContext";
 import getSeats from "../../services/getSeats";
-import showAlert from "../../helper/showAlert";
+import showAlert from "../../helpers/showAlert";
 import TopBar from "../../commonStyles/TopBar";
 import Wrapper from "./SessionWrapper";
 import Seat from "./Seat";

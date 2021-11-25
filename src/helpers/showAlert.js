@@ -6,7 +6,6 @@ export default function showAlert(params) {
     title = "",
     text = "",
     timer = 1000,
-    imageUrl = "",
     showConfirmButton = false,
     goToPreviousPage = false,
   } = params;
@@ -16,7 +15,6 @@ export default function showAlert(params) {
     title,
     text,
     timer,
-    imageUrl,
     showConfirmButton,
   }).then(() => {
     if (showConfirmButton && goToPreviousPage) window.history.back();
