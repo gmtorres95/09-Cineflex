@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { apiURL } from "./apiURL";
-import showAlert from "../helper/showAlert";
+import showAlert from "../helpers/showAlert";
 
 export default function postOrder(body, setIsOrderDone) {
   axios.post(`${apiURL}/seats/book-many`, body)

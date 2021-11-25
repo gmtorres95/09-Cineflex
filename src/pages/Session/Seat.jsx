@@ -1,6 +1,6 @@
 import React from "react";
 
-import showAlert from "../../helper/showAlert";
+import showAlert from "../../helpers/showAlert";
 import Wrapper from "./SeatWrapper";
 
 export default function Seat({ seat, selected, setSelected }) {
