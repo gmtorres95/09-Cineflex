@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+
 import Showtime from "./Showtime";
 
 export default function Day(props) {
@@ -11,7 +11,6 @@ export default function Day(props) {
       <span>
         {weekday} - {date}
       </span>
-
       <Showtime>
         {showtimes.map((showtime) => (
           <Link key={showtime.id} to={`/sessao/${showtime.id}`}>

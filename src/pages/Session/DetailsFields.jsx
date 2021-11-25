@@ -1,9 +1,9 @@
 import React from "react";
 
-import Wrapper from "./BookFormWrapper";
+import Wrapper from "./DetailsFieldsWrapper";
 import StyledInput from "./StyledInput";
 
-export default function BookForm({ name, setName, cpf, setCpf }) {
+export default function DetailsFields({ name, setName, cpf, setCpf }) {
   return (
     <Wrapper>
       <p>Nome do comprador:</p>

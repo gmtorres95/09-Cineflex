@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import OrderContext from "../../contexts/OrderContext";
 import MovieCover from "../../commonStyles/MovieCover";
 import Wrapper from "./FooterWrapper";
 import Cover from "./Cover";
 
-export default function Footer({ src, title, day }) {
+export default function Footer() {
+  const { movie, session } = useContext(OrderContext);
+  let posterURL;
+  let title;
+
+  if (session) {
+    posterURL = session.movie.posterURL;
+    title = session.movie.title;
+  }
+  else if (movie) {
+    posterURL = movie.posterURL;
+    title = movie.title;
+  }
+
   return (
     <Wrapper>
       <Cover>
-        <MovieCover footer src={src} alt={title} />
+        {movie || session ? <MovieCover footer src={posterURL} alt={title} /> : ''}
       </Cover>
       <div>
-        <p>{title}</p>
-        <p>{day}</p>
+        {movie || session ? <p>{title}</p> : 'carregando...'}
+        {session ? <p>{session.day.date} - {session.name}</p> : ''}
       </div>
     </Wrapper>
   );

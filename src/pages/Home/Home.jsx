@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import getMovies from "../../services/getMovies";
+import OrderContext from "../../contexts/OrderContext";
 import TopBar from "../../commonStyles/TopBar";
 import MoviesGrid from "./MoviesGrid";
 import MovieCover from "../../commonStyles/MovieCover";
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
+  const { setMovie } = useContext(OrderContext);
 
-  useEffect(() => getMovies(setMovies), []);
+  useEffect(() => {
+    setMovie();
+    getMovies(setMovies);
+  }, [setMovie]);
 
   if (movies.length) {
     return (
