@@ -16,11 +16,6 @@ export default styled.header`
   top: 0;
   left: 0;
 
-  ion-icon {
-    position: fixed;
-    left: 16px;
-  }
-
   a {
     color: inherit;
   }
