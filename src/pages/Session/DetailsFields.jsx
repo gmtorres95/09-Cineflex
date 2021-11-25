@@ -15,7 +15,7 @@ export default function DetailsFields({ name, setName, cpf, setCpf }) {
         minLength="3"
         required
       />
-      
+
       <p>CPF do comprador:</p>
       <StyledInput
         type="text"

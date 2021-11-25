@@ -1,10 +1,10 @@
 import axios from "axios";
 
-import { apiURL } from "./apiURL";
+import * as URL from "./apiURL";
 import showAlert from "../helper/showAlert";
 
 export default function getMovies(setMovies) {
-  axios.get(`${apiURL}/movies`)
+  axios.get(`${URL}/movies`)
     .then((resp) => setMovies(resp.data))
     .catch(() => {
       showAlert({

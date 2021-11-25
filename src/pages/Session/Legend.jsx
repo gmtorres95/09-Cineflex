@@ -14,7 +14,7 @@ export default function Legend() {
         <li />
         <span>Disponível</span>
       </div>
-      
+
       <div>
         <li />
         <span>Indisponível</span>

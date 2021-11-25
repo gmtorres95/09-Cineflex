@@ -52,6 +52,7 @@ export default function Session() {
             />
           ))}
         </ul>
+
         <Legend />
 
         <form onSubmit={submitHelper}>

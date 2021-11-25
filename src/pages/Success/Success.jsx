@@ -10,8 +10,8 @@ import StyledButton from "../../commonStyles/StyledButton";
 import Loading from "../../commonComponents/Loading/Loading";
 
 export default function Success() {
-  const { session, order } = useContext(OrderContext);
   const [isOrderDone, SetIsOrderDone] = useState(false);
+  const { session, order } = useContext(OrderContext);
   const showtime = `${session.day.date} ${session.name}`
   
   useEffect(() => postOrder(order, SetIsOrderDone), [order]);

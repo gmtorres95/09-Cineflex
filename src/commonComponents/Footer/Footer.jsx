@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <Wrapper>
       <Cover>
-        {movie || session ? <MovieCover footer src={posterURL} alt={title} /> : <Loading footer />}
+        {movie || session? <MovieCover footer src={posterURL} alt={title} /> : <Loading footer />}
       </Cover>
       <div>
         {movie || session ? <p>{title}</p> : "Carregando..."}
