@@ -7,6 +7,7 @@ import Wrapper from "./SuccessWrapper";
 import TopBar from "../../commonStyles/TopBar";
 import Information from "./Information";
 import StyledButton from "../../commonStyles/StyledButton";
+import Loading from "../../commonComponents/Loading/Loading";
 
 export default function Success() {
   const { session, order } = useContext(OrderContext);
@@ -30,5 +31,5 @@ export default function Success() {
       </Wrapper>
     );
 
-  return "carregando...";
+  return <Loading />;
 }

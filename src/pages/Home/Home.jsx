@@ -6,6 +6,7 @@ import OrderContext from "../../contexts/OrderContext";
 import TopBar from "../../commonStyles/TopBar";
 import MoviesGrid from "./MoviesGrid";
 import MovieCover from "../../commonStyles/MovieCover";
+import Loading from "../../commonComponents/Loading/Loading";
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
@@ -31,5 +32,5 @@ export default function Home() {
     );
   }
 
-  return "carregando...";
+  return <Loading />;
 }

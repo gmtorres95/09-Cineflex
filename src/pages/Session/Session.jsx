@@ -10,6 +10,7 @@ import Seat from "./Seat";
 import Legend from "./Legend";
 import DetailsFields from "./DetailsFields";
 import StyledButton from "../../commonStyles/StyledButton";
+import Loading from "../../commonComponents/Loading/Loading";
 
 export default function Session() {
   const [selected, setSelected] = useState([]);
@@ -61,5 +62,5 @@ export default function Session() {
     );
   }
 
-  return "carregando...";
+  return <Loading />;
 }

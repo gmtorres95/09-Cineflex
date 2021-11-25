@@ -6,6 +6,7 @@ import getShowtimes from "../../services/getShowtimes";
 import TopBar from "../../commonStyles/TopBar";
 import List from "./List";
 import Day from "./Day";
+import Loading from "../../commonComponents/Loading/Loading";
 
 export default function Showtimes() {
   const { movie, setMovie, setSession } = useContext(OrderContext);
@@ -29,5 +30,5 @@ export default function Showtimes() {
     );
   }
 
-  return "carregando...";
+  return <Loading />;
 }

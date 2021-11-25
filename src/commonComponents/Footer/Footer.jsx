@@ -4,6 +4,7 @@ import OrderContext from "../../contexts/OrderContext";
 import MovieCover from "../../commonStyles/MovieCover";
 import Wrapper from "./FooterWrapper";
 import Cover from "./Cover";
+import Loading from "../Loading/Loading";
 
 export default function Footer() {
   const { movie, session } = useContext(OrderContext);
@@ -22,10 +23,10 @@ export default function Footer() {
   return (
     <Wrapper>
       <Cover>
-        {movie || session ? <MovieCover footer src={posterURL} alt={title} /> : ''}
+        {movie || session ? <MovieCover footer src={posterURL} alt={title} /> : <Loading footer />}
       </Cover>
       <div>
-        {movie || session ? <p>{title}</p> : 'carregando...'}
+        {movie || session ? <p>{title}</p> : 'Carregando...'}
         {session ? <p>{session.day.date} - {session.name}</p> : ''}
       </div>
     </Wrapper>
