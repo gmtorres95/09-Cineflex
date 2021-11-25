@@ -10,6 +10,7 @@ export default styled.li`
   margin: 8px 4px;
   font-size: 11px;
   font-weight: 500;
+  color: #293845;
   display: flex;
   justify-content: center;
   align-items: center;

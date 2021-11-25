@@ -11,6 +11,5 @@ export default styled.div`
     width: 100%;
     font-size: 18px;
     font-weight: 400;
-    color: #293845;
   }
 `;

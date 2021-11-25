@@ -9,11 +9,9 @@ export default styled.div`
     margin: 6px 0px;
     font-weight: 700;
     font-size: 24px;
-    color: #293845;
   }
 
   p {
     font-size: 22px;
-    color: #293845;
   }
 `;

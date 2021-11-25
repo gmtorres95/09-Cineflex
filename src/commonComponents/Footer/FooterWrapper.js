@@ -9,7 +9,6 @@ export default styled.footer`
   border: 1px solid #9EADBA;
   background-color: #DFE6ED;
   font-size: 26px;
-  color: #293845;
   display: flex;
   align-items: center;
   position: fixed;

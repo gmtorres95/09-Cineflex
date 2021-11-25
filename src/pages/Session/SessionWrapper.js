@@ -6,7 +6,6 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #4E5A65;
 
   ul {
     width: 320px;

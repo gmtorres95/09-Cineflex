@@ -7,6 +7,7 @@ export default styled.div`
   display: flex;
   justify-content: space-evenly;
   font-size: 13px;
+  color: #4E5A65;
 
   div {
     display: flex;
