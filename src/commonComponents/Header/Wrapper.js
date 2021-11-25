@@ -17,4 +17,8 @@ export default styled.header`
     position: fixed;
     left: 16px;
   }
+
+  a {
+    color: inherit;
+  }
 `;

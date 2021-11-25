@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Wrapper from "./Wrapper";
 
@@ -15,7 +15,9 @@ export default function Header() {
       ) : (
         ""
       )}
-      CINEFLEX
+      <Link to="/">
+        CINEFLEX
+      </Link>
     </Wrapper>
   );
 }
