@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import OrderContext from "../../contexts/OrderContext";
 import getSeats from "../../services/getSeats";
+import showAlert from "../../helper/showAlert";
 import TopBar from "../../commonStyles/TopBar";
 import Wrapper from "./SessionWrapper";
 import Seat from "./Seat";
@@ -25,7 +26,11 @@ export default function Session() {
   function submitHelper(e) {
     e.preventDefault();
     if (!selected.length) {
-      alert("Selecione ao menos um assento");
+      showAlert({
+        title: "Reserva inválida!",
+        text: "Selecione pelo menos um assento",
+        timer: 2000
+      });
       return;
     }
     setOrder({ ids: selected, name, cpf });

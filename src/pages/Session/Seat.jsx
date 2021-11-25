@@ -1,5 +1,6 @@
 import React from "react";
 
+import showAlert from "../../helper/showAlert";
 import Wrapper from "./SeatWrapper";
 
 export default function Seat({ seat, selected, setSelected }) {
@@ -21,7 +22,7 @@ export default function Seat({ seat, selected, setSelected }) {
       onClick={() =>
         seat.isAvailable
           ? addSeat()
-          : alert("Esse assento não está disponível")
+          : showAlert({ title: "Esse assento não está disponível" })
       }
     >
       {seat.name.padStart(2, "0")}
