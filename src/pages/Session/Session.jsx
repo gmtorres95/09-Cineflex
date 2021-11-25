@@ -29,7 +29,7 @@ export default function Session() {
       return;
     }
     setOrder({ ids: selected, name, cpf });
-    history.push('/success');
+    history.push("/success");
   }
 
   if (session) {

@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { pulse } from 'react-animations';
+import { pulse } from "react-animations";
 
 const pulseAnimation = keyframes`${pulse}`;
 

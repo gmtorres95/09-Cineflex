@@ -1,6 +1,6 @@
-import Loader from 'react-loader-spinner';
+import Loader from "react-loader-spinner";
 
-import Wrapper from './Wrapper';
+import Wrapper from "./Wrapper";
 
 export default function Loading({ footer }) {
   return (

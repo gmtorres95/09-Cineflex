@@ -26,8 +26,8 @@ export default function Footer() {
         {movie || session ? <MovieCover footer src={posterURL} alt={title} /> : <Loading footer />}
       </Cover>
       <div>
-        {movie || session ? <p>{title}</p> : 'Carregando...'}
-        {session ? <p>{session.day.date} - {session.name}</p> : ''}
+        {movie || session ? <p>{title}</p> : "Carregando..."}
+        {session ? <p>{session.day.date} - {session.name}</p> : ""}
       </div>
     </Wrapper>
   );
