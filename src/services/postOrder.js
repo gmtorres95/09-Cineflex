@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import apiURL from "./apiURL";
+import { apiURL } from "./apiURL";
 import showAlert from "../helper/showAlert";
 
 export default function postOrder(body, setIsOrderDone) {
