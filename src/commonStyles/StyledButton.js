@@ -12,4 +12,8 @@ export default styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    filter: brightness(1.25);
+  }
 `;

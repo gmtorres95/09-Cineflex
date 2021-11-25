@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { rubberBand } from "react-animations";
+
+const rubberBandAnimation = keyframes`${rubberBand}`;
 
 export default styled.li`
   width: 24px;
@@ -15,4 +18,13 @@ export default styled.li`
   border: 1px solid
     ${(props) =>
       props.isSelected ? "#45BDB0" : props.isAvailable ? "#808F9D" : "#F7C52B"};
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    animation: 0.2s ${rubberBandAnimation};  
+  }
 `;

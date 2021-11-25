@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { pulse } from 'react-animations';
+
+const pulseAnimation = keyframes`${pulse}`;
 
 export default styled.div`
   display: flex;
@@ -15,5 +18,9 @@ export default styled.div`
     justify-content: center;
     align-items: center;
     overflow: hidden;
+  }
+
+  a:active, a:hover {
+    animation: 0.2s ${pulseAnimation};
   }
 `;

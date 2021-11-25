@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { pulse } from 'react-animations';
+
+const pulseAnimation = keyframes`${pulse}`;
 
 export default styled.header`
   height: 68px;
@@ -20,5 +23,10 @@ export default styled.header`
 
   a {
     color: inherit;
+  }
+
+  a:active {
+    filter: brightness(1.25);
+    animation: 0.2s ${pulseAnimation};
   }
 `;

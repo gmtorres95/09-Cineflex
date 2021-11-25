@@ -25,5 +25,6 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
   }
 `;

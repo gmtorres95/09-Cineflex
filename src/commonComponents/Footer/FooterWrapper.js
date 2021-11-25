@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { slideInUp } from 'react-animations';
+
+const slideAnimation = keyframes`${slideInUp}`;
 
 export default styled.footer`
   width: 100%;
@@ -12,4 +15,6 @@ export default styled.footer`
   position: fixed;
   bottom: 0;
   left: 0;
+  animation: 1s ${slideAnimation};
+  transition: all 1s linear;
 `;

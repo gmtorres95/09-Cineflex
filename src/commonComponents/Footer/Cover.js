@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.div`
-  width: 64px;
+  min-width: 64px;
   height: 88px;
   border-radius: 4px;
   margin: 14px 10px;
