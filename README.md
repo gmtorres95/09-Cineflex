@@ -12,18 +12,26 @@ Check the application in production [here](http://cineflex-vert.vercel.app)
 
 ## How to run
 
+### Install the application
+
 ```bash
 # Clone this repository
-$ git clone <https://https://github.com/gmtorres95/Cineflex>
+$ git clone https://https://github.com/gmtorres95/Cineflex
 
 # Install the dependencies
 $ npm i
-
-# Compile the code
-$ npm run build
-
-# Run the application
-$ npm start
-
-# The server will automatically start at localhost:3000/ on your favorite browser
 ```
+
+### Compile the code
+
+```bash
+$ npm run build
+```
+
+### Run the application
+
+```bash
+$ npm start
+```
+
+The server will automatically start at localhost:3000/ on your favorite browser
