@@ -16,7 +16,7 @@ Check the application in production [here](http://cineflex-vert.vercel.app)
 
 ```bash
 # Clone this repository
-$ git clone https://https://github.com/gmtorres95/Cineflex
+$ git clone https://github.com/gmtorres95/Cineflex
 
 # Install the dependencies
 $ npm i
