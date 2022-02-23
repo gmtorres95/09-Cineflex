@@ -1,6 +1,4 @@
-# CINEFLEX
-
-<img src="./public/favicon.png" height="192px" />
+# <img src="./public/favicon.png" height="24px" /> CINEFLEX
 
 Book seats to watch your favorite movies!\
 Check the application in production [here](http://cineflex-vert.vercel.app)
@@ -12,6 +10,10 @@ Check the application in production [here](http://cineflex-vert.vercel.app)
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
   <img src="https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white" />
 </div>
+
+## Preview
+
+<img src="./public/preview.gif" height="480px" />
 
 ## How to run
 
@@ -25,16 +27,10 @@ $ git clone https://github.com/gmtorres95/Cineflex
 $ npm i
 ```
 
-### Compile the code
-
-```bash
-$ npm run build
-```
-
 ### Run the application
 
 ```bash
 $ npm start
 ```
 
-The server will automatically start at localhost:3000/ on your favorite browser
+The server will automatically start at localhost:3000/
